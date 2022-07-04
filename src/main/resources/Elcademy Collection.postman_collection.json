@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "61784a98-dd7b-4877-9988-701b2dcada79",
+		"name": "Elcademy Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Simple Get Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Request Using Path Variable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/any name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"any name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Request Using  Request Param",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/param?filter=dfg&sortBy=dfgdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"param"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "dfg"
+						},
+						{
+							"key": "sortBy",
+							"value": "dfgdf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Request Combining Path variable and Request Param",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/combine/something?filter=dfg&sortBy=dfgdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"combine",
+						"something"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "dfg"
+						},
+						{
+							"key": "sortBy",
+							"value": "dfgdf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": \"1\",\r\n    \"name\": \"this is a name\",\r\n    \"surname\": \"this is a surname\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/hello/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": \"1\",\r\n    \"name\": \"this is a name\",\r\n    \"surname\": \"this is a surname\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/hello/modify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"modify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Custom Exeption",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": \"1\",\r\n    \"name\": \"this is a name\",\r\n    \"surname\": \"this is a surname\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exception",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exception"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generic Excpetion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": \"1\",\r\n    \"name\": \"this is a name\",\r\n    \"surname\": \"this is a surname\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customException",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customException"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
