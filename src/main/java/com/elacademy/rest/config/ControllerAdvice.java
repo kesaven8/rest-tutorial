@@ -13,7 +13,7 @@ import org.springframework.web.context.request.WebRequest;
 public class ControllerAdvice {
 
     @ExceptionHandler(CustomException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ErrorMessage> handleAllCustomException(CustomException customException, WebRequest request) {
         System.out.println("This is a custom Exception");
         return new ResponseEntity<>(new ErrorMessage(customException.getMessage()), HttpStatus.BAD_REQUEST);

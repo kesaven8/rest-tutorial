@@ -1,15 +1,20 @@
 package com.elacademy.rest.controller;
 
+import com.elacademy.rest.dto.Animal;
 import com.elacademy.rest.dto.Person;
 import com.elacademy.rest.exception.CustomException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
-@org.springframework.web.bind.annotation.RestController
-public class RestController {
+import javax.validation.Valid;
+
+@RestController
+public class RestControllerExample {
 
     @GetMapping("/hello")
     public String hello() {
@@ -28,8 +33,9 @@ public class RestController {
 
     @GetMapping("/hello/{name}")
     public String getUsingPathVariable(@PathVariable(name = "name") String name) {
-        System.out.println(name);
-        return name.toUpperCase(Locale.ROOT);
+        throw new NullPointerException();
+        //        System.out.println(name);
+        //        return name.toUpperCase(Locale.ROOT);
     }
 
 
@@ -51,7 +57,8 @@ public class RestController {
         System.out.println("age : " + person.getAge());
         System.out.println("Name : " + person.getName());
         System.out.println("Surname : " + person.getSurname());
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.HTTP_VERSION_NOT_SUPPORTED)
+                .header("SOMETHING", "TEST").build();
     }
 
     @PutMapping("/hello/modify")
@@ -60,5 +67,18 @@ public class RestController {
         System.out.println("Name : " + person.getName());
         System.out.println("Surname : " + person.getSurname());
         return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @GetMapping("/animals")
+    public List<String> getAnimals() {
+        var animal = new Animal("name 001 ", "sound 001");
+        var animal1 = new Animal("name 002 ", "sound 002");
+        var animal2 = new Animal("name 003 ", "sound 003");
+        return List.of(animal, animal1, animal2)
+                .stream()
+                .map(Animal::getName)
+                .filter(string -> string.length() > 5)
+                .collect(Collectors.toList());
+
     }
 }
